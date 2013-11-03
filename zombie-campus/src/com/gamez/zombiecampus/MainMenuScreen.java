@@ -32,7 +32,7 @@ public class MainMenuScreen implements Screen {
             game.batch.setProjectionMatrix(camera.combined);
             spriteBatch.begin();
             
-            if(alpha >= .95f)
+            if(alpha >= .95f) // fade in screen
             		alpha = 1.0f;
             else
             	alpha = alpha + .05f;
@@ -41,38 +41,42 @@ public class MainMenuScreen implements Screen {
             spriteBatch.draw(background, 0, 0, camera.viewportWidth, camera.viewportHeight);
             spriteBatch.end();
             
-            // check for user input
+            // Check for user touch input
             if(Gdx.input.justTouched())
             {
 	            checkButtonPressed();
             }
         }
         
+        /**
+         * Based on x,y coordinate position of user's touch (percentage of screen)
+         * go to screen specified by button touched
+         */
         private void checkButtonPressed()
         {
         	// play button
-        	if(Touch.getButtonTouched(Gdx.input.getX(), Gdx.input.getY(), camera.viewportWidth, camera.viewportHeight, 5.7, 48.4, 55.5, 74))
+        	if(Touch.getButtonTouched(Gdx.input.getX(), Gdx.input.getY(), Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), 5.7, 48.4, 55.5, 74))
     			game.setScreen(new PlayScreen(game));
         	// options button
-        	else if(Touch.getButtonTouched(Gdx.input.getX(), Gdx.input.getY(), camera.viewportWidth, camera.viewportHeight, 5.7, 48.4, 78.7, 96.8))
+        	else if(Touch.getButtonTouched(Gdx.input.getX(), Gdx.input.getY(), Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), 5.7, 48.4, 78.7, 96.8))
     			game.setScreen(new OptionsScreen(game, this));
         	// best runs button
-        	else if(Touch.getButtonTouched(Gdx.input.getX(), Gdx.input.getY(), camera.viewportWidth, camera.viewportHeight, 52.6, 95.5, 55.5, 74))
+        	else if(Touch.getButtonTouched(Gdx.input.getX(), Gdx.input.getY(), Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), 52.6, 95.5, 55.5, 74))
     			game.setScreen(new BestRunsScreen(game, this));
         	// exit game button
-        	else if(Touch.getButtonTouched(Gdx.input.getX(), Gdx.input.getY(), camera.viewportWidth, camera.viewportHeight, 52.6, 95.5, 78.7, 96.8))
+        	else if(Touch.getButtonTouched(Gdx.input.getX(), Gdx.input.getY(), Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), 52.6, 95.5, 78.7, 96.8))
     			Gdx.app.exit();       	
         }
 
 		@Override
 		public void resize(int width, int height) {
-			// TODO Auto-generated method stub			
+			// TODO Auto-generated method stub		
 		}
 
 		@Override
 		public void show() {
 			// TODO Auto-generated method stub
-			background = new Texture(Gdx.files.internal(Assets.MENU_MAIN));	
+			background = new Texture(Gdx.files.internal(Assets.MENU_MAIN));
 			spriteBatch = new SpriteBatch();			
 		}
 
