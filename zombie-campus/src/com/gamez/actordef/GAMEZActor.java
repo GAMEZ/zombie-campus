@@ -1,7 +1,7 @@
 package com.gamez.actordef;
 
 import com.badlogic.gdx.math.Vector2;
-import com.sun.xml.internal.ws.wsdl.writer.document.soap12.Body;
+import com.badlogic.gdx.physics.box2d.Body;
 
 /**
  * @interface GAMEZActor
@@ -24,10 +24,12 @@ public interface GAMEZActor
 	 * @returns void
 	 * This function will be given the GAMEZTool object (or implementing object type)
 	 */
-	public void equipTool(GAMEZTool tool);
+	public GAMEZTool equipTool(GAMEZTool tool, int slot);
 	
 	/**
 	 * @method getPosition
+	 * @param GAMEZTool tool
+	 * @param int slot
 	 * @returns Vector2 position
 	 * This function returns a Vector2 representing the GAMEZActor's current position.
 	 */
