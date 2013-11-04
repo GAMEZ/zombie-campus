@@ -14,6 +14,8 @@ public class PlayScreen implements Screen {
     private SpriteBatch spriteBatch;
     private float alpha = 0.0f;
 
+    private Background bg = new Background();
+    
     OrthographicCamera camera;
 
     public PlayScreen(final AndroidGame g) {
@@ -36,11 +38,14 @@ public class PlayScreen implements Screen {
         		alpha = 1.0f;
         else
         	alpha = alpha + .05f;
-                    
+                   
+        background = new Texture(bg.Draw());
+               
         spriteBatch.setColor(1.0f, 1.0f, 1.0f, alpha);
-        //spriteBatch.draw(background, 0, 0, camera.viewportWidth, camera.viewportHeight);
-        spriteBatch.end();        
+        spriteBatch.draw(background, 0, 0, camera.viewportWidth, camera.viewportHeight);
+        spriteBatch.end();   
         
+        background.dispose();
     }
 
 	@Override
@@ -51,7 +56,6 @@ public class PlayScreen implements Screen {
 
 	@Override
 	public void show() {
-		// TODO Auto-generated method stub
 		spriteBatch = new SpriteBatch();
 	}
 

@@ -111,7 +111,7 @@ public class SplashScreen implements Screen
 		@Override
 		public void show() {
 			// TODO Auto-generated method stub
-			spriteBatch = new SpriteBatch();			
+			spriteBatch = new SpriteBatch();
 		}
 
 		@Override

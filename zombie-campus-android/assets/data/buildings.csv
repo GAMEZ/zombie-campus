@@ -1,0 +1,4 @@
+id,campusId,buildingName,image
+1,1,Lippitt Hall,data/Images/Background/building_lippitt.gif
+2,1,East Hall,data/Images/Background/building_east.gif
+3,1,Tyler Hall,data/Images/Background/building_tyler.gif
