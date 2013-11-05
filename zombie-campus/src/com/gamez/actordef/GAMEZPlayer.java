@@ -2,8 +2,9 @@ package com.gamez.actordef;
 
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 
-public class GAMEZPlayer implements GAMEZActor
+public class GAMEZPlayer extends Actor implements GAMEZActor
 {
 	protected Vector2 position;
 	protected GAMEZTool[] tools;// 0 = head, 1 = body, 2 = feet, 3 = weapon
@@ -22,7 +23,6 @@ public class GAMEZPlayer implements GAMEZActor
 			this.tools = new GAMEZTool[4];
 		}
 	}
-	
 	@Override
 	public void move(Vector2 dir)
 	{
@@ -36,11 +36,11 @@ public class GAMEZPlayer implements GAMEZActor
 		{
 			dir = dir.div(mag);
 			dir.mul(MAX_MOVE);
-			body.applyForceToCenter(dir);
+			body.applyForceToCenter(dir);	
 		}
-		
+		Vector2 pos = body.getTransform().getPosition();
+		setPosition(pos.x, pos.y);
 	}
-
 	@Override
 	public GAMEZTool equipTool(GAMEZTool tool, int slot)
 	{
@@ -56,13 +56,11 @@ public class GAMEZPlayer implements GAMEZActor
 		}
 		return old_tool;
 	}
-
 	@Override
 	public Vector2 getPosition()
 	{
 		return position;
 	}
-
 	@Override
 	public GAMEZTool[] getTools()
 	{
@@ -72,7 +70,6 @@ public class GAMEZPlayer implements GAMEZActor
 	{
 		return tools[WEAPON];
 	}
-	
 	@Override
 	public Body getBody()
 	{

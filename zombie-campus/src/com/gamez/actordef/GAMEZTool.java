@@ -1,7 +1,12 @@
 package com.gamez.actordef;
 
-import com.badlogic.gdx.scenes.scene2d.Actor;
+public interface GAMEZTool{
 
-public class GAMEZTool extends Actor{
-
+	/**
+	 * @method use
+	 * @param none
+	 * @return void
+	 * this function will execute whatever the GAMEZTool "use" function is
+	 */
+	public void use();
 }
