@@ -19,7 +19,14 @@ public class Assets {
 	public static final String BG_GROUND_DAY = "data/Images/Background/ground_day.gif";
 	public static final String BG_GROUND_NIGHT = "data/Images/Background/ground_night.gif";
 	public static final String BG_GROUND_OVERCAST = "data/Images/Background/ground_overcast.gif";
+	public static final String BG_MOON_NEW = "data/Images/Background/moon_new.gif";
+	public static final String BG_MOON_WAX_CRES = "data/Images/Background/moon_wax_cres.gif";
+	public static final String BG_MOON_FIRST_QTR = "data/Images/Background/moon_1st_qtr.gif";
+	public static final String BG_MOON_WAX_GIB = "data/Images/Background/moon_wax_gib.gif";
 	public static final String BG_MOON_FULL = "data/Images/Background/moon_full.gif";
+	public static final String BG_MOON_WAN_GIB = "data/Images/Background/moon_wan_gib.gif";
+	public static final String BG_MOON_THIRD_QTR = "data/Images/Background/moon_3rd_qtr.gif";
+	public static final String BG_MOON_WAN_CRES = "data/Images/Background/moon_wan_cres.gif";	
 	public static final String BG_SKY_DAY = "data/Images/Background/sky_day.gif";
 	public static final String BG_SKY_NIGHT = "data/Images/Background/sky_night.gif";
 	public static final String BG_SKY_OVERCAST = "data/Images/Background/sky_overcast.gif";

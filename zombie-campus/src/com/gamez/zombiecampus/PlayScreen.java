@@ -14,7 +14,8 @@ public class PlayScreen implements Screen {
     private SpriteBatch spriteBatch;
     private float alpha = 0.0f;
 
-    private Background bg = new Background();
+    // Creates a background object initialized with time and weather condition
+    private Background bg = new Background(new WUWeatherTime());
     
     OrthographicCamera camera;
 
@@ -38,7 +39,7 @@ public class PlayScreen implements Screen {
         		alpha = 1.0f;
         else
         	alpha = alpha + .05f;
-                   
+                        
         background = new Texture(bg.Draw());
                
         spriteBatch.setColor(1.0f, 1.0f, 1.0f, alpha);
