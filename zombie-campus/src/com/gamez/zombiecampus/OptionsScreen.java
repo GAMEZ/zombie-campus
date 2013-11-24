@@ -34,7 +34,7 @@ public class OptionsScreen implements Screen {
         game.batch.setProjectionMatrix(camera.combined);
         spriteBatch.begin();
         
-        if(alpha >= .95f)
+        if(alpha >= .95f) // fade in screen
         		alpha = 1.0f;
         else
         	alpha = alpha + .05f;
@@ -44,11 +44,11 @@ public class OptionsScreen implements Screen {
         spriteBatch.end();    
         
         
-        // check for input (back button)
-        if(Gdx.input.justTouched() && Touch.getButtonTouched(Gdx.input.getX(), Gdx.input.getY(), camera.viewportWidth, camera.viewportHeight, 64.5, 95.5, 57.4, 75.6))
+        // Check for input (back button): go to previous screen
+        if(Gdx.input.justTouched() && Touch.getButtonTouched(Gdx.input.getX(), Gdx.input.getY(), Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), 64.5, 95.5, 57.4, 75.6))
         	game.setScreen(previousScreen);
-        // check for input (save button)
-        if(Gdx.input.justTouched() && Touch.getButtonTouched(Gdx.input.getX(), Gdx.input.getY(), camera.viewportWidth, camera.viewportHeight, 64.5, 95.5, 78.5, 96.7))
+        // Check for input (save button: save options and go back to previous screen
+        if(Gdx.input.justTouched() && Touch.getButtonTouched(Gdx.input.getX(), Gdx.input.getY(), Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), 64.5, 95.5, 78.5, 96.7))
         {
         	// TODO: save options
         	

@@ -43,10 +43,9 @@ public class BestRunsScreen implements Screen {
         spriteBatch.draw(background, 0, 0, camera.viewportWidth, camera.viewportHeight);
         spriteBatch.end();
         
-        // check for input (back button pressed)
-        if(Gdx.input.justTouched() && Touch.getButtonTouched(Gdx.input.getX(), Gdx.input.getY(), camera.viewportWidth, camera.viewportHeight, 64.4, 95.5, 79.3, 96.7))
-        	game.setScreen(new MainMenuScreen(game));
-        	
+        // Check for input (back button pressed): go to previous screen
+        if(Gdx.input.justTouched() && Touch.getButtonTouched(Gdx.input.getX(), Gdx.input.getY(), Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), 64.4, 95.5, 79.3, 96.7))
+        	game.setScreen(previousScreen);        	
         
     }
 
