@@ -4,6 +4,9 @@
 *.jar
 *.war
 *.ear
+*.apk
+*.ap_
+*.dex
 
 # OS generated files #
 ######################
