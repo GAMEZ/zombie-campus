@@ -1,7 +1,5 @@
 package com.gamez.zombiecampus;
 
-package com.gamez.zombiecampus;
-
 import java.util.Random;
 
 import com.badlogic.gdx.Gdx;
