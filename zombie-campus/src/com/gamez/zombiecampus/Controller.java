@@ -2,32 +2,27 @@ package com.gamez.zombiecampus;
 
 import com.gamez.actordef.GAMEZPlayer;
 import com.badlogic.gdx.graphics.Pixmap;
-import com.badlogic.gdx.scenes.scene2d.ui.Button;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
-public class Controller {
+public class Controller extends Actor{
 	
-Button jumpB, fireB, pauseB;
-	
-    public Controller(GAMEZPlayer player, Skin uiSkin)
+    Player player;
+
+    public Controller(GAMEZPlayer player)
     {
-	jumpB = new Button(uiSkin);
-	fireB = new Button(uiSkin);
-	pauseB = new Button(uiSkin);
+	this.player = player;
     }
-	
-    public void setJumpButtonPos(float x, float y)
-    {
-	jumpB.setPosition(x, y);
-    }
-        
-    public void setFireButtonPos(float x, float y)
-    {
-	fireB.setPosition(x, y);
-    }
-        
-    public void setPauseButtonPos(float x, float y)
-    {
-        pauseB.setPosition(x, y);
+
+    //call this function during PlayScreen render
+    public void checkButtons(){
+    // Check location of user touch input
+    // jump button
+   if(Touch.getButtonTouched(Gdx.input.getX(), Gdx.input.getY(), Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), 0, 100, 50, 25))
+      player.move(0, 5);
+   // fire button
+   else if(Touch.getButtonTouched(Gdx.input.getX(), Gdx.input.getY(), Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), 51, 0, 100, 75))
+      player.getWeapon().fire();
+   // pause button
+   else if(Touch.getButtonTouched(Gdx.input.getX(), Gdx.input.getY(), Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), 0, 100, 100, 25))
+      System.out.println("Pause everything here")
     }
 }
