@@ -1,15 +1,19 @@
 package com.gamez.zombiecampus;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.gamez.actordef.GAMEZPlayer;
 
 public class PlayScreen implements Screen {
 
     final AndroidGame game;
+    final World world;
+    final GAMEZPlayer player;
     private Texture background;
     private SpriteBatch spriteBatch;
     private float alpha = 0.0f;
@@ -45,6 +49,7 @@ public class PlayScreen implements Screen {
         spriteBatch.setColor(1.0f, 1.0f, 1.0f, alpha);
         spriteBatch.draw(background, 0, 0, camera.viewportWidth, camera.viewportHeight);
         spriteBatch.end();   
+        checkButtons();
         
         background.dispose();
     }
@@ -76,6 +81,19 @@ public class PlayScreen implements Screen {
 	public void resume() {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public void checkButtons(){
+	// Check location of user touch input
+	// jump button
+	if(Touch.getButtonTouched(Gdx.input.getX(), Gdx.input.getY(), Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), 0, 100, 50, 25))
+		player.move(0, 5);
+	// fire button
+	else if(Touch.getButtonTouched(Gdx.input.getX(), Gdx.input.getY(), Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), 51, 0, 100, 75))
+		player.getWeapon().fire();
+	// pause button
+	else if(Touch.getButtonTouched(Gdx.input.getX(), Gdx.input.getY(), Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), 0, 100, 100, 25))
+		System.out.println("Pause everything here")
 	}
 
 	@Override
