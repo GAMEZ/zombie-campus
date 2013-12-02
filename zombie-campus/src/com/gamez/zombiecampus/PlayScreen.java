@@ -28,6 +28,8 @@ public class PlayScreen implements Screen {
         camera = new OrthographicCamera();
         camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         Gdx.gl.glViewport(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        world = new World(new Vector2(0,-1), true)
+        player = new GAMEZPlayer()
     }
     
     @Override
@@ -82,23 +84,22 @@ public class PlayScreen implements Screen {
 		// TODO Auto-generated method stub
 		
 	}
-	
-	public void checkButtons(){
-	// Check location of user touch input
-	// jump button
-	if(Touch.getButtonTouched(Gdx.input.getX(), Gdx.input.getY(), Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), 0, 100, 50, 25))
-		player.move(0, 5);
-	// fire button
-	else if(Touch.getButtonTouched(Gdx.input.getX(), Gdx.input.getY(), Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), 51, 0, 100, 75))
-		player.getWeapon().fire();
-	// pause button
-	else if(Touch.getButtonTouched(Gdx.input.getX(), Gdx.input.getY(), Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), 0, 100, 100, 25))
-		System.out.println("Pause everything here")
-	}
 
 	@Override
 	public void dispose() {
 		// TODO Auto-generated method stub
 		
+	}
+	public void checkButtons(){
+		// Check location of user touch input
+		// jump button
+		if(Touch.getButtonTouched(Gdx.input.getX(), Gdx.input.getY(), Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), 0, 50, 40, 100))
+			player.move(0, 5);
+		// fire button
+		else if(Touch.getButtonTouched(Gdx.input.getX(), Gdx.input.getY(), Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), 51, 100, 40, 100))
+			player.getWeapon().fire();
+		// pause button
+		else if(Touch.getButtonTouched(Gdx.input.getX(), Gdx.input.getY(), Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), 0, 100, 0, 39))
+			System.out.println("Pause everything here")
 	}
 }
