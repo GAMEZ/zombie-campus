@@ -24,10 +24,11 @@ public class GAMEZPlayer extends Actor implements GAMEZActor
 		}
 	}
 	@Override
-	public void move(Vector2 dir)
+	public void move(float x, float y)
 	{
+		Vector2 dir = new Vector2(x,y)
 		//magnitude check
-		float mag = (float) Math.sqrt((dir.x*dir.x) + (dir.y*dir.y)); 
+		float mag = (float) Math.sqrt(x*x + y*y); 
 		if (mag <= MAX_MOVE)
 		{
 			body.applyForceToCenter(dir);
