@@ -28,6 +28,7 @@ public class PlayScreen implements Screen {
     final World world;
     static final Vector2 GRAVITY = new Vector2(0.0f, -400.0f);
     static final Vector2 CENTER = new Vector2(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2);
+    static final Vector2 START_POS = new Vector2(Gdx.graphics.getWidth()/2, 100);
     static final float JUMP_FORCE = 1000;
     // Physics body definitions
     private final BodyDef active, inactive, bullet;
@@ -70,12 +71,6 @@ public class PlayScreen implements Screen {
         inactive = new BodyDef();
         inactive.type = BodyDef.BodyType.StaticBody;
         inactive.awake = true;
- 
-        // define fixture shapes
-        FixtureDef platformFixDef = new FixtureDef();
-        PolygonShape platformShape = new PolygonShape();
-        platformShape.setAsBox(Gdx.graphics.getWidth(), 20);// width, height
-        platformFixDef.shape = platformShape;
         
         // Load player data (XML parsing?)
         GAMEZTool[] playerTools = new GAMEZTool[4];
@@ -89,12 +84,11 @@ public class PlayScreen implements Screen {
         // Set up Physics Bodies
         Body playerBody = world.createBody(active);
         Body platformBody = world.createBody(inactive);
-        platformBody.createFixture(platformFixDef);
         // Add Platform to stage
-        platform = new GAMEZPlatform(platformBody, new Vector2(0,0));
+        platform = new GAMEZPlatform(platformBody, new Vector2(0,10), Gdx.graphics.getWidth());
         stage.addActor(platform);
         // Add player to stage
-        player = new GAMEZPlayer(playerBody, CENTER.div(1, 4), playerTools);
+        player = new GAMEZPlayer(playerBody, START_POS, playerTools);
         stage.addActor(player);
         stage.setViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), false);
     }
