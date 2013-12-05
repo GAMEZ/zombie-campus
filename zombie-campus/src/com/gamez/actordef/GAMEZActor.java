@@ -16,7 +16,7 @@ public interface GAMEZActor
 	 * @returns void
 	 * This function will be given a force represented as a Vector2 and will translate the GAMEZActor using forces
 	 */
-	public void move(Vector2 dir);
+	public void move(float x, float y);
 	
 	/**
 	 * @method equipTool

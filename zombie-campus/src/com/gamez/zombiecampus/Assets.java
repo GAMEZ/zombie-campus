@@ -1,6 +1,11 @@
 package com.gamez.zombiecampus;
 
 public class Assets {
+	//Actors:
+	public static final String PLAYER_SPRITE = "data/Images/Actors/player_sprite.png";
+	
+	// Platforms
+	public static final String PLATFORM_TEX = "data/Images/Platforms/platform_tex.png";
 	
 	// Screens:
 	public static final String SPLASH_SCREEN = "data/Images/Screens/splash-screen.png";
